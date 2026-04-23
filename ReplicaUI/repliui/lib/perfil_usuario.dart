@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'usuario.dart';
 
 class PerfilUsuario extends StatelessWidget {
-  const PerfilUsuario({super.key});
+  final Usuario datos;
+
+  const PerfilUsuario({super.key, required this.datos});
 
   @override
   Widget build(BuildContext context) {
@@ -49,18 +52,18 @@ class PerfilUsuario extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Fernando Sejas',
-              style: TextStyle(
+            Text(
+              datos.nombre, 
+              style: const TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87,
               ),
             ),
             const SizedBox(height: 5),
-            const Text(
-              'Mobile Developer',
-              style: TextStyle(
+            Text(
+              datos.profesion,
+              style: const TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
               ),
@@ -75,7 +78,7 @@ class PerfilUsuario extends StatelessWidget {
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.04),
+                      color: Colors.black.withOpacity(0.04),
                       blurRadius: 15,
                       spreadRadius: 0,
                       offset: const Offset(0, 5),
@@ -90,21 +93,21 @@ class PerfilUsuario extends StatelessWidget {
                       esGris: true,
                     ),
                     const Divider(height: 30, thickness: 0.5),
-                    const FilaInformacion(
+                    FilaInformacion(
                       icono: Icons.alternate_email,
-                      texto: 'fernando@ucb.edu.bo',
+                      texto: datos.correo,
                       esGris: false,
                     ),
                     const Divider(height: 30, thickness: 0.5),
-                    const FilaInformacion(
+                    FilaInformacion(
                       icono: Icons.cake_outlined,
-                      texto: 'Edad 20 años',
+                      texto: 'Edad ${datos.edad} años',
                       esGris: true,
                     ),
                     const Divider(height: 30, thickness: 0.5),
-                    const FilaInformacion(
+                    FilaInformacion(
                       icono: Icons.person_outline,
-                      texto: 'Mobile Developer',
+                      texto: datos.profesion,
                       esGris: false,
                     ),
                     const SizedBox(height: 35),
@@ -164,12 +167,15 @@ class FilaInformacion extends StatelessWidget {
           size: 22,
         ),
         const SizedBox(width: 16),
-        Text(
-          texto,
-          style: TextStyle(
-            fontSize: 15,
-            color: esGris ? Colors.grey.shade600 : Colors.black87,
-            fontWeight: esGris ? FontWeight.normal : FontWeight.w600,
+        Expanded(
+          child: Text(
+            texto,
+            style: TextStyle(
+              fontSize: 15,
+              color: esGris ? Colors.grey.shade600 : Colors.black87,
+              fontWeight: esGris ? FontWeight.normal : FontWeight.w600,
+            ),
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ],
