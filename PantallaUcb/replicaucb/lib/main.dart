@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'perfil_usuario.dart';
+import 'portal_academico.dart';
 
 void main() {
   runApp(const MainApp());

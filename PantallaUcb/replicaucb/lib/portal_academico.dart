@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'lista_materias.dart';
 
 class PortalAcademico extends StatelessWidget {
   const PortalAcademico({super.key});
@@ -19,23 +20,23 @@ class PortalAcademico extends StatelessWidget {
             ),
           ),
           SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 10),
-                  const Text(
-                    'UCB - Portal Académico',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 0.5,
-                    ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 10),
+                const Text(
+                  'UCB - Portal Académico',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 0.5,
                   ),
-                  const SizedBox(height: 30),
-                  Row(
+                ),
+                const SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
@@ -73,14 +74,14 @@ class PortalAcademico extends StatelessWidget {
                             ),
                             SizedBox(height: 4),
                             Text(
-                              'Carrera: Ingeniería de Software',
+                              'Carrera: Ingeniería de Sistemas',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
                               ),
                             ),
                             Text(
-                              '7° Semestre | Registro: 10456',
+                              '8° Semestre | Registro: 10456',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
@@ -91,8 +92,14 @@ class PortalAcademico extends StatelessWidget {
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 100),
+                const Expanded(
+                  child: SingleChildScrollView(
+                    child: ListaMaterias(),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
