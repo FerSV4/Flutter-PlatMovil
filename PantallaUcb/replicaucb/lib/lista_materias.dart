@@ -36,8 +36,8 @@ class _ListaMateriasState extends State<ListaMaterias> {
           'Parcial 2': '94',
           'Trabajos Prácticos': '91',
           'Examen Final': '93',
-          'Asistencia': '95%'
-        }
+          'Asistencia': '95%',
+        },
       },
       {
         'nombre': 'BASE DE DATOS II',
@@ -52,8 +52,8 @@ class _ListaMateriasState extends State<ListaMaterias> {
           'Parcial 2': '88',
           'Trabajos Prácticos': '90',
           'Examen Final': '86',
-          'Asistencia': '92%'
-        }
+          'Asistencia': '92%',
+        },
       },
       {
         'nombre': 'INTELIGENCIA ARTIFICIAL',
@@ -68,8 +68,8 @@ class _ListaMateriasState extends State<ListaMaterias> {
           'Parcial 2': '88',
           'Trabajos Prácticos': '84',
           'Examen Final': '88',
-          'Asistencia': '90%'
-        }
+          'Asistencia': '90%',
+        },
       },
       {
         'nombre': 'INGENIERÍA DE SOFTWARE',
@@ -84,8 +84,8 @@ class _ListaMateriasState extends State<ListaMaterias> {
           'Parcial 2': '90',
           'Trabajos Prácticos': '92',
           'Examen Final': '86',
-          'Asistencia': '96%'
-        }
+          'Asistencia': '96%',
+        },
       },
       {
         'nombre': 'TESIS DE GRADO I',
@@ -99,29 +99,49 @@ class _ListaMateriasState extends State<ListaMaterias> {
           'Avance': '70%',
           'Reuniones': '4',
           'Calificación Parcial': '75',
-          'Asistencia': '85%'
-        }
+          'Asistencia': '85%',
+        },
       },
     ];
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
-        children: List.generate(items.length, (i) {
-          final it = items[i];
-          return TarjetaMateria(
-            nombre: it['nombre'] as String,
-            nota: it['nota'] as int,
-            icono: it['icono'] as IconData,
-            colorIcono: it['color'] as Color,
-            sigla: it['sigla'] as String,
-            docente: it['docente'] as String,
-            aprobado: it['aprobado'] as bool,
-            detalles: Map<String, String>.from(it['detalles'] as Map),
-            isExpanded: _expandedIndex == i,
-            onTap: () => _onTapIndex(i),
-          );
-        }),
+        children: [
+          Card(
+            elevation: 2,
+            margin: const EdgeInsets.only(bottom: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            color: Colors.white,
+            child: Column(
+              crossAxisAlignment: .stretch,
+              mainAxisAlignment: .center,
+              children: [
+                Text("SEMESTRE I - 2026", textAlign: .center, style: TextStyle(fontWeight: .w700),),
+                Text("Promedio General: 88 / 100", textAlign: .center, style: TextStyle(fontWeight: .w700),),
+              ],
+            ),
+          ),
+          Column(
+            children: List.generate(items.length, (i) {
+              final it = items[i];
+              return TarjetaMateria(
+                nombre: it['nombre'] as String,
+                nota: it['nota'] as int,
+                icono: it['icono'] as IconData,
+                colorIcono: it['color'] as Color,
+                sigla: it['sigla'] as String,
+                docente: it['docente'] as String,
+                aprobado: it['aprobado'] as bool,
+                detalles: Map<String, String>.from(it['detalles'] as Map),
+                isExpanded: _expandedIndex == i,
+                onTap: () => _onTapIndex(i),
+              );
+            }),
+          ),
+        ],
       ),
     );
   }
@@ -212,7 +232,9 @@ class TarjetaMateria extends StatelessWidget {
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
                 child: ConstrainedBox(
-                  constraints: isExpanded ? const BoxConstraints() : const BoxConstraints(maxHeight: 0),
+                  constraints: isExpanded
+                      ? const BoxConstraints()
+                      : const BoxConstraints(maxHeight: 0),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 12),
                     child: Column(
@@ -222,10 +244,16 @@ class TarjetaMateria extends StatelessWidget {
                         Row(
                           children: [
                             Expanded(
-                              child: Text('Sigla: $sigla', style: TextStyle(color: Colors.grey[800])),
+                              child: Text(
+                                'Sigla: $sigla',
+                                style: TextStyle(color: Colors.grey[800]),
+                              ),
                             ),
                             Expanded(
-                              child: Text('Docente: $docente', style: TextStyle(color: Colors.grey[800])),
+                              child: Text(
+                                'Docente: $docente',
+                                style: TextStyle(color: Colors.grey[800]),
+                              ),
                             ),
                           ],
                         ),
@@ -238,16 +266,26 @@ class TarjetaMateria extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        ...detalles.entries.map((e) => Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 4.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(e.key, style: TextStyle(color: Colors.grey[700])),
-                                  Text(e.value, style: const TextStyle(fontWeight: FontWeight.bold)),
-                                ],
-                              ),
-                            )),
+                        ...detalles.entries.map(
+                          (e) => Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  e.key,
+                                  style: TextStyle(color: Colors.grey[700]),
+                                ),
+                                Text(
+                                  e.value,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
