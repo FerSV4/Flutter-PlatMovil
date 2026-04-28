@@ -115,13 +115,16 @@ class _ListaMateriasState extends State<ListaMaterias> {
               borderRadius: BorderRadius.circular(15),
             ),
             color: Colors.white,
-            child: Column(
-              crossAxisAlignment: .stretch,
-              mainAxisAlignment: .center,
-              children: [
-                Text("SEMESTRE I - 2026", textAlign: .center, style: TextStyle(fontWeight: .w700),),
-                Text("Promedio General: 88 / 100", textAlign: .center, style: TextStyle(fontWeight: .w700),),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Column(
+                crossAxisAlignment: .stretch,
+                mainAxisAlignment: .center,
+                children: [
+                  Text("SEMESTRE I - 2026", textAlign: .center, style: TextStyle(fontWeight: .w700),),
+                  Text("Promedio General: 88 / 100", textAlign: .center, style: TextStyle(fontWeight: .w700),),
+                ],
+              ),
             ),
           ),
           Column(
