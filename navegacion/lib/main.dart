@@ -18,11 +18,11 @@ class AppAdopcion extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         useMaterial3: true,
       ),
-      initialRoute: '/',
+      initialRoute: PantallaBienvenida.ruta,
       routes: {
-        '/': (context) => const PantallaBienvenida(),
-        '/catalogo': (context) => const PantallaCatalogo(),
-        '/perfil': (context) => const PantallaPerfil(),
+        PantallaBienvenida.ruta: (context) => const PantallaBienvenida(),
+        PantallaCatalogo.ruta: (context) => const PantallaCatalogo(),
+        PantallaPerfil.ruta: (context) => const PantallaPerfil(),
       },
     );
   }
