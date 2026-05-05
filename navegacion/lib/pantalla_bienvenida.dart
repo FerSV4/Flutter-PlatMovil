@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'pantalla_catalogo.dart';
 
 class PantallaBienvenida extends StatelessWidget {
+  static const String ruta = '/';
+
   const PantallaBienvenida({super.key});
 
   @override
@@ -21,10 +23,7 @@ class PantallaBienvenida extends StatelessWidget {
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const PantallaCatalogo()),
-                );
+                Navigator.pushReplacementNamed(context, PantallaCatalogo.ruta);
               },
               child: const Text('Ver Mascotas'),
             ),
