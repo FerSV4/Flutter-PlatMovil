@@ -39,19 +39,7 @@ class PortalAcademico extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 75,
-                        height: 90,
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.1),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.account_balance,
-                          size: 45,
-                          color: Colors.white,
-                        ),
-                      ),
+                      Image.asset('assets/logo-UCB.png', height: 90,),
                       const SizedBox(width: 16),
                       const Expanded(
                         child: Column(
@@ -65,7 +53,7 @@ class PortalAcademico extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'ALEJANDRO TORRES C.',
+                              'DANIEL ROLAND P. C.',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
@@ -74,14 +62,14 @@ class PortalAcademico extends StatelessWidget {
                             ),
                             SizedBox(height: 4),
                             Text(
-                              'Carrera: Ingeniería de Sistemas',
+                              'Carrera: Ingeniería de Software',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
                               ),
                             ),
                             Text(
-                              '8° Semestre | Registro: 10456',
+                              '7° Semestre | Registro: 10456',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
@@ -93,7 +81,7 @@ class PortalAcademico extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 100),
+                const SizedBox(height: 50),
                 const Expanded(
                   child: SingleChildScrollView(
                     child: ListaMaterias(),
